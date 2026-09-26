@@ -1,0 +1,14 @@
+import { Router } from "express";
+import {dashboard,listFarmers,approveFarmer,suspendFarmer,listCustomers,setCustomerStatus,reports,listUsers} from "../controllers/adminController.js";
+import {protect,authorize} from "../middleware/authMiddleware.js";
+const router=Router();
+router.use(protect,authorize("admin"));
+router.get("/dashboard",dashboard);
+router.get("/farmers",listFarmers);
+router.patch("/farmers/:id/approve",approveFarmer);
+router.patch("/farmers/:id/suspend",suspendFarmer);
+router.get("/customers",listCustomers);
+router.patch("/customers/:id/status",setCustomerStatus);
+router.get("/reports",reports);
+router.get("/users",listUsers);
+export default router;

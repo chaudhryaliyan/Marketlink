@@ -1,0 +1,16 @@
+import api from "./axiosInstance";
+export const getAdminDashboard = () => api.get("/admin/dashboard");
+export const getAdminFarmers = () => api.get("/admin/farmers");
+export const approveFarmer = (id) => api.patch(`/admin/farmers/${id}/approve`);
+export const suspendFarmer = (id) => api.patch(`/admin/farmers/${id}/suspend`);
+export const getAdminCustomers = () => api.get("/admin/customers");
+export const setCustomerStatus = (id,status) => api.patch(`/admin/customers/${id}/status`, { status });
+export const getAdminReports = () => api.get("/admin/reports");
+export const getAdminUsers = () => api.get("/admin/users");
+export const createCategory = (payload) => api.post("/categories", payload);
+export const updateCategory = (id,payload) => api.put(`/categories/${id}`, payload);
+export const deleteCategory = (id) => api.delete(`/categories/${id}`);
+export const getCategories = () => api.get("/categories");
+export const getAnnouncements = () => api.get("/announcements");
+export const createAnnouncement = (payload) => api.post("/announcements", payload);
+export const deleteAnnouncement = (id) => api.delete(`/announcements/${id}`);
